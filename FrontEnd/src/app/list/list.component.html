@@ -1,0 +1,41 @@
+<br /><br />
+
+<div>
+    <h1>List Of Student</h1>
+    <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" name="search2"
+            [(ngModel)]="searchText" autocomplete="off">
+        <button type="button" class="btn btn-outline-info">Search</button>
+    </form> -->
+    <table class="table table-bordered">
+        <thead class="thead">
+            <tr>
+                <th>ID Number</th>
+                <th>Student Name</th>
+                <th>E-mail</th>
+                <th>Book Title</th>
+                <th>Book Number</th>
+                <th>Book Item</th>
+                <th>Date Borrowed</th>
+                <th>Date Return</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let each of passData">
+                <th>{{each.id}}</th>
+                <th>{{each.fullname}}</th>
+                <th>{{each.email}}</th>
+                <th>{{each.bookTitle}}</th>
+                <th>{{each.bookNumber}}</th>
+                <th>{{each.bookItems}}</th>
+                <th>{{each.dateBorrow}}</th>
+                <th>{{each.dateReturn}}</th>
+                <th><i (click)="handleDelete(each.id)" class="fa fa-trash"></i>&nbsp;<i (click)="handleEdit(each.id)"
+                        class="fa fa-pencil"></i></th>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

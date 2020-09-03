@@ -1,0 +1,116 @@
+<br /><button (click)="list()" *ngIf="!tolist" class="btn btn-primary">go to list</button><br />
+<button id="librarycard" (click)="library()" *ngIf="tolist" class="btn btn-primary">go to Library Card</button>
+
+<div *ngIf="!hide" class="card">
+    <div class="card-body"> <br />
+        <img class="card-img-top" src="assets/formbooks.jpg" alt="Card image cap">
+
+        <h1>Library Card</h1>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+            <div class="row">
+                <div class="col">
+                    <i class="fa fa-user"></i>&nbsp;<label>ID Number:</label>
+                    <input type="number" class="form-control" name="idNum" [(ngModel)]="tempIDNum" required
+                        #idNum="ngModel" />
+                    <div *ngIf="idNum.invalid && (idNum.dirty || idNum.touched)" class="alert">
+                        <div class="error">
+                            <p *ngIf="idNum.errors.required">ID number is Required!</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <i class="fa fa-user"></i>&nbsp;<label>FullName:</label>
+                    <input type="name" class="form-control" name="lname" [(ngModel)]="tempname" required minlength="4"
+                        #lname="ngModel" />
+                    <div *ngIf="lname.invalid && (lname.dirty || lname.touched)" class="alert">
+                        <div class="error">
+                            <p *ngIf="lname.errors.required">Fullname is Required!</p>
+                            <p *ngIf="lname.errors.minlength">
+                                This field must be at least 4 characters!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2nd Row -->
+            <div class="row">
+
+                <div class="col">
+                    <i class="fa fa-envelope"></i>&nbsp;<label>E-mail:</label>
+                    <input type="email" class="form-control" name="mail" [(ngModel)]="tempemail" required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #mail="ngModel" />
+                    <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="alert">
+                        <div class="error">
+                            <p *ngIf="mail.errors.required">Email is Required!</p>
+                            <p *ngIf="mail.errors.pattern">Email is Invalid!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 3rd Row -->
+            <div class="row">
+                <div class="col">
+                    <i class="fa fa-hashtag"></i>&nbsp;<label>Book Number:</label>
+                    <input type="name" class="form-control" name="booknum" [(ngModel)]="tempnumbook" required
+                        #booknum="ngModel" />
+                    <div *ngIf="booknum.invalid && (booknum.dirty || booknum.touched)" class="alert">
+                        <div class="error">
+                            <p *ngIf="booknum.errors.required">Book Number is Required!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <i class="fa fa-hashtag"></i>&nbsp;<label>Number Of Books Borrowed:</label>
+
+                    <input type="name" class="form-control" name="items" [(ngModel)]="tempitems" required
+                        #items="ngModel" />
+                    <div *ngIf="items.invalid && (items.dirty || items.touched)" class="alert">
+                        <div class="error">
+                            <p *ngIf="items.errors.required">Number Of Books Borrowed is Required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 4th row -->
+            <div class="row">
+                <div class="col">
+                    <i class="fa fa-book"></i>&nbsp;<label>Books Title:</label>
+                    <input type="bktitle" class="form-control" name="title" [(ngModel)]="temptitle" required
+                        #title="ngModel" />
+                    <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+                        <div class="error">
+                            <p *ngIf="title.errors.required">Book Title is Required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 5th row -->
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <input matInput type="dateborrow" class="form-control date" name="dateborrow"
+                            [(ngModel)]="tempdateborrow" required #borrow="ngModel" [matDatepicker]="picker1"
+                            placeholder="Date Borrow" [(ngModel)]="inputStartDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1 [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <input matInput type="datereturn" class="form-control date" name="datereturn"
+                            [(ngModel)]="tempdatereturn" required #return="ngModel" [matDatepicker]="picker2"
+                            placeholder="Date Return" [(ngModel)]="inputEndDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2 [startAt]="endDate"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div><br />
+            <button *ngIf="!editing" [disabled]="form.invalid" class="btn btn-success">Submit</button>
+        </form>
+        <button *ngIf="editing" class="btn btn-success" (click)="handleSave()">Save</button>
+    </div>
+</div>
+<div *ngIf="hide">
+    <app-list (emitdelete)="delete($event)" (editData)="editParent($event)" [passData]="dataArray"></app-list>
+</div>

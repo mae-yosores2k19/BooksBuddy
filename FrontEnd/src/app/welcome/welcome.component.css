@@ -1,0 +1,51 @@
+.welcome{
+    float: left;
+    margin-left: 15%;
+}
+#welcome1{
+    font-size: 100px;
+    color: white;
+    text-shadow: 3px 3px 5px black, 0 0 0.2em #20e0ab, 0 0 0.1em #2c9600cc;
+    margin-top: 70px;
+    font-weight: bold;
+}
+#tagline{
+    font-style: italic;
+    font-size: 40px;
+    margin-left: 20px;
+    color: antiquewhite;
+    text-shadow: 2px 2px 3px #c921f3, 0 0 1em white, 0 0 0.2em black;
+}
+.remind{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 15%;
+    color: black;
+    text-shadow: 2px 2px 3px burlywood, 0 0 1em white, 0 0 0.2em blanchedalmond;
+}
+.reminders{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+.field1{
+    margin-top: 25%;
+    width: 450px;
+    margin-left: 20%;
+    /* border: 2px solid black;
+    border-radius: 10%; */
+}
+.btn{
+    /* text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue; */
+    margin-top: 10%;
+    margin-left: 29%;
+    width: 200px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+img{
+    width: 350px;
+    margin-left: 20px;
+}

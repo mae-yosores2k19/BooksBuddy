@@ -1,0 +1,41 @@
+.navbardiv{
+    float: left;
+}
+.home{
+    width: 10%;
+    height: 30%;
+}
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+  }
+  
+  
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+  .book{
+    height: 99px;
+    width: 100px;
+    margin-left: 6px;
+    margin-top: -10px;
+    margin-bottom: 29px;
+  }
+  div{
+      background-color:skyblue;
+      
+  }
+  p{
+    margin-top: -64px;
+    margin-left: 5px;
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 3px #c921f3, 0 0 1em white, 0 0 0.2em black;
+   
+  }
